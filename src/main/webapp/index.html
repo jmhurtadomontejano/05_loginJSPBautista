@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Start Page</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <style>
+        body{
+            width: 60%;
+            border: 1px solid black;
+            padding: 2%;
+            justify-content: center;
+            align-content: center;
+            margin:auto;
+            
+        }
+        
+        input{
+            width: 80%;
+            margin: 0.5em;
+            padding: 0.5em;
+        }
+        
+    </style>
+    
+    <body>
+    <center> 
+        <h2>Sistema de Administracion (HTML V1 Juanmi) Comprobar</h2>
+        <br>
+        <img src='images/login.jpg'><br>		
+        <br>
+        <form action="MiServlet?action=login" method="post" name="formulario">
+            <br>
+            <table>
+                <tr>
+                    <td>Usuario:</td>
+                    <td><input type="text" name="nombreUsuario" id="nombreUsuario" required="" value=""></td>
+                </tr>
+                <tr>
+                    <td>Password:</td>
+                    <td><input type="password" name="claveUsuario" id="claveUsuario" required="" /></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input name="login" type="submit"  value="login" /></td>
+                </tr>
+            </table>
+        <br>
+        <a href="registro.jsp">Registra un Usuario Nuevo</a>
+        </form>
+    </center>
+
+</body>
+</html>
