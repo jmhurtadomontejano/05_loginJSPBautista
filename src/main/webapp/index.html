@@ -11,16 +11,14 @@
             padding: 2%;
             justify-content: center;
             align-content: center;
-            margin:auto;
-            
+            margin:auto;  
         }
         
         input{
             width: 80%;
             margin: 0.5em;
             padding: 0.5em;
-        }
-        
+        } 
     </style>
     
     <body>
@@ -29,9 +27,10 @@
         <br>
         <img src='images/login.jpg'><br>		
         <br>
+<!-- En el form declaramos la accion que queremos que ejecute, en este caso ir a MiServlet y buscar la funcion LOGIN -->        
         <form action="MiServlet?action=login" method="post" name="formulario">
             <br>
-            <table>
+            <table><!-- En esta tabla introducimos los inputs necesarios para que el usuario se logué -->
                 <tr>
                     <td>Usuario:</td>
                     <td><input type="text" name="nombreUsuario" id="nombreUsuario" required="" value=""></td>
@@ -41,10 +40,12 @@
                     <td><input type="password" name="claveUsuario" id="claveUsuario" required="" /></td>
                 </tr>
                 <tr>
+<!-- El siguiente boton de Login ejecuta el action del form action="MiServlet?action=login" por method="post"-->
                     <td colspan="2"><input name="login" type="submit"  value="login" /></td>
                 </tr>
             </table>
         <br>
+<!-- el siguiente enlace de texto me redirige a la página para registrar nuevos usuarios -->        
         <a href="registro.jsp">Registra un Usuario Nuevo</a>
         </form>
     </center>

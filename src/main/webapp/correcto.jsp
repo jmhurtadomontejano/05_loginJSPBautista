@@ -1,8 +1,3 @@
-<%-- 
-    Document   : respuesta
-    Created on : 29 sept. 2021, 10:09:19
-    Author     : bauti
---%>
 <%@page import="java.util.ArrayList" %>
 <%@page import="modelo.Producto" %>
 <%@page import="java.util.List" %>
@@ -20,20 +15,17 @@
     <center>
         <h2>Usuario identificado</h2>
         <h3>Las credenciales son correctass</h3>
-        <br/><br/>
-
+<!-- Declaro la variable nom para almacenar el parametro recibido del servlet?Login -->
         <%!  String nom = "";%>
         <% nom = (String) request.getParameter("nombre");%>
 
         <h3> Bienvenido  <%= nom%>  </h3>
-        <br/><br/>
-        
+        <br/>
+<!-- llamamos a VerProductos.jsp-->        
         <jsp:include page="VerProductos.jsp"/>
         <br>
         
         <a href="index.html">Volver a la pantalla de Logueo</a>
-
-       <%--  <jsp:include  page="VerProductos.jsp"  />  --%>
 
     </center>
 </body>

@@ -38,24 +38,6 @@ public class MiServlet extends HttpServlet {
     //String ruta = "";
     Connection con;
 
-    @Override
-    public void init(ServletConfig config) throws ServletException {
-        //  ruta = config.getServletContext().getRealPath("") + File.separator + "archivos" + File.separator + "usuarios.csv";
-    }
-
-    //@Override intento ruta
-    // public void init(ServletConfig config) throws ServletException{
-    // ruta= config.getServletContext().getRealPath("")+File.separator+"archivos"+File.separator+"usuarios.csv";
-    // }
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -113,50 +95,32 @@ public class MiServlet extends HttpServlet {
         response.sendRedirect("registro.jsp?msg=" + msg);
     }
 
-    /*    protected void login(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-
-        boolean encontrado = false;
-
-        //String ruta = "C:/xampp/htdocs/Bautista/JSP/04_LoginJSP_v1/src/main/webapp/Archivos/usuarios.csv";
-        UsuarioDB bd = new UsuarioDB();
-        ArrayList<Usuario> listaUsuarios = bd.getListaUsuarios();
-        String usuario = request.getParameter("nombreUsuario");
-        String pass = request.getParameter("claveUsuario");
-        
-        out.println(listaUsuarios);
-        
-        
-        for (Usuario usu : listaUsuarios) {
-            if (usu.getUsuario().equals(usuario) && usu.getClave().equals(pass)) {
-                encontrado = true;
-                break;
-            }//if
-        }//for
-        if (encontrado) {
-            response.sendRedirect("correcto.jsp?nombre=" + usuario);
-        } else {
-            response.sendRedirect("error.jsp");
-        }
-    }*/
   protected void login(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+//Declaro una variable ENCONTRADO para igualarla a true en caso de que se encuentren las credenciales
         boolean encontrado = false;
+//Declaramos una variable BD de tipo USUARIOBD
         UsuarioDB bd = new UsuarioDB();
+//Creo un arrayList de Usuarios LISTAUSUARIOS y llamo al metodo de UsuarioDB
+//BD.GETLISTAUSUARIOS();
         ArrayList<Usuario> listaUsuarios = bd.getListaUsuarios();
+//Recojo los parametros enviados por Formulario POST
         String nombre = request.getParameter("nombreUsuario");
         String passwd = request.getParameter("claveUsuario");
-
+//Creamos un bucle para comparar cada usuario guardado en LISTAUSUARIOS
         for (Usuario u : listaUsuarios) {
+//En caso de que encuentre algun usuario de la lista con el mismo nombre y clave
+//entrará dentro del if, iguala la variable encontrado a true y rompe el bucle
             if (u.getUsuario().equals(nombre) && u.getClave().equals(passwd)) {
                 encontrado = true;
                 break;
             }
         }
-
+//si encuentra el usuario redirige a correcto.jsp con el nombre encontrado
         if (encontrado) {
             response.sendRedirect("correcto.jsp?nombre=" + nombre);
+//si no encuentra el usuario redirige a error.jsp
         } else {
             response.sendRedirect("error.jsp");
         }
