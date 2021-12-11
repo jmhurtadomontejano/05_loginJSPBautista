@@ -17,35 +17,28 @@ import java.util.logging.Logger;
  * @author DAW-A
  */
 public class Conexion {
-
-    //declaro variables en mayusculas porque son constantes
     public static Connection conexion;
-
-    final static String DRIVER = "com.mysql.cj.jdbc.Driver";
+    final static String DRIVER = "com.mysql.jdbc.Driver";
     final static String URLDB = "jdbc:mysql://localhost:3306/productosdb";
-    final static String USUARIO = "admin";
-    final static String CLAVE = "1234";
-
+    final static String USUARIO = "root";
+    final static String CLAVE = "";
     /**
-     * Obtendrá una conexión a la base de datos.
-     *
-     * @return
+     * Obtendrá la conexión a la BD
+     * @return 
      */
     public static Connection getConexion() {
         try {
-            if (conexion == null) {
+            if(conexion == null) {
                 Class.forName(DRIVER);
-                conexion = DriverManager.getConnection(URLDB, USUARIO, CLAVE);
-                System.out.println("Conexion establecida");
-            } else {
-                System.out.println("Ya conectado a la base de datos.");
+                conexion = DriverManager.getConnection(URLDB,USUARIO,CLAVE);
+                
+            } else{
+                System.out.println("Ya conectado a la base de datos");
             }
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-
+            Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             return conexion;
         }
-    }//fin getConexion
+    }
 }

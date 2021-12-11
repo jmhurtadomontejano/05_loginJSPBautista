@@ -13,8 +13,6 @@ public class Usuario {
 
     private String usuario;
     private String password;
-    private String email;
-    private String nombre;
 
 
     public Usuario(String usuario, String clave) {
@@ -32,13 +30,7 @@ public class Usuario {
         return password;
     }
 
-    public String getEmail() {
-        return email;
-    }
 
-    public String getNombre() {
-        return nombre;
-    }
 
     public void setUsuario(String usuario) {
         this.usuario = usuario;
@@ -48,12 +40,5 @@ public class Usuario {
         this.password = clave;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
 
 }
