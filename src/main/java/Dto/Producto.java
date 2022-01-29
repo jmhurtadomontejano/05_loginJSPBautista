@@ -1,20 +1,20 @@
-package modelo;
-
+package Dto;
 
 public class Producto {
+
     private int id;
     private String categoria;
     private String nombre;
     private double precio;
+
+    public Producto() {
+    }
 
     public Producto(int id, String categoria, String nombre, double precio) {
         this.id = id;
         this.categoria = categoria;
         this.nombre = nombre;
         this.precio = precio;
-    }
-
-    public Producto() {   
     }
 
     public int getId() {
@@ -48,8 +48,5 @@ public class Producto {
     public void setPrecio(double precio) {
         this.precio = precio;
     }
-    
-    
-    
-    
+
 }
